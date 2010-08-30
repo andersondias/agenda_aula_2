@@ -3,6 +3,12 @@ class Agenda
     @contatos = []
   end
 
+  def buscar_contato(nome)
+    contatos.select do |contato|
+      contato[:nome].include?(nome)
+    end
+  end
+
   def contatos
     @contatos
   end
