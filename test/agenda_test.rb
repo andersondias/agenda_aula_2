@@ -1,4 +1,4 @@
-require 'agenda'
+require File.join(File.dirname(__FILE__), '..', 'app', 'agenda.rb')
 require 'test/unit'
 
 class AgendaTest < Test::Unit::TestCase
