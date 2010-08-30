@@ -26,4 +26,11 @@ class AgendaTest < Test::Unit::TestCase
     assert resultado_da_busca.find { |contato| contato[:nome] == 'Anderson Meses' }
     assert_nil resultado_da_busca.find { |contato| contato[:nome] == 'Rafael Souza' }
   end
+
+  def test_buscar_contato_nao_deve_levar_em_consideracao_maiusculo_ou_minusculo
+    agenda = Agenda.new
+    agenda.inserir_contato(:nome => 'Anderson Dias',  :telefone => '84 8888888')
+    resultado_da_busca = agenda.buscar_contato('anderson')
+    assert resultado_da_busca.find { |contato| contato[:nome] == 'Anderson Dias' }
+  end
 end

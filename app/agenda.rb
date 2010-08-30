@@ -5,7 +5,7 @@ class Agenda
 
   def buscar_contato(nome)
     contatos.select do |contato|
-      contato[:nome].include?(nome)
+      contato[:nome].downcase.include?(nome.downcase)
     end
   end
 
