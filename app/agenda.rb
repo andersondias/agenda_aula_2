@@ -1,14 +1,18 @@
 class Agenda
   def initialize
-    @quantidade_de_contatos = 0
+    @contatos = []
+  end
+
+  def contatos
+    @contatos
   end
 
   def inserir_contato(dados)
-    @quantidade_de_contatos += 1
+    @contatos << dados
     dados
   end
 
   def quantidade_de_contatos
-    @quantidade_de_contatos
+    @contatos.size
   end
 end
