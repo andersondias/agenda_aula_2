@@ -33,4 +33,15 @@ class AgendaTest < Test::Unit::TestCase
     resultado_da_busca = agenda.buscar_contato('anderson')
     assert resultado_da_busca.find { |contato| contato[:nome] == 'Anderson Dias' }
   end
+
+  def test_remover_contato_deve_retirar_um_contato_da_agenda_apartir_do_seu_nome
+    agenda = Agenda.new
+    agenda.inserir_contato(:nome => 'Anderson Dias', :telefone => '84 8888888')
+    agenda.inserir_contato(:nome => 'Rafael Souza',  :telefone => '84 8888888')
+
+    agenda.remover_contato('Anderson Dias')
+
+    assert_nil agenda.contatos.find { |contato| contato[:nome] == 'Anderson Dias' }
+    assert agenda.contatos.find { |contato| contato[:nome] == 'Rafael Souza' }
+  end
 end

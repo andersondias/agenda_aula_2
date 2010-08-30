@@ -18,6 +18,12 @@ class Agenda
     dados
   end
 
+  def remover_contato(nome)
+    contatos.reject! do |contato|
+      contato[:nome] == nome
+    end
+  end
+
   def quantidade_de_contatos
     @contatos.size
   end
